@@ -27,6 +27,8 @@ Calculate Cohen's *d* for these groups.
 
 
 ```python
+#run this cell without changes
+
 group1 = np.array([2.101, 2.302, 2.403])
 group2 = np.array([2.604, 2.505, 2.506])
 
