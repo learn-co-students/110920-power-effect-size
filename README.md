@@ -12,19 +12,14 @@ from scipy import stats
 
 #### 1. What is the relationship between power and the false-negative rate, $\beta$ ?
 
+=== BEGIN MARK SCHEME ===
 
-```python
-
-```
-
-
-```python
-# __SOLUTION__
 
 '''
 Power is simply 1 less the false-negative rate, 1 - beta.
 '''
-```
+
+=== END MARK SCHEME ===
 
 #### 2. Calculate Cohen's *d* for the following data.  
 
@@ -47,7 +42,12 @@ group2_var = np.var(group2, ddof=1)
 
 
 ```python
-# __SOLUTION__
+### BEGIN SOLUTION
+
+
+from test_scripts.test_class import Test
+test = Test()
+
 
 pooled_stdev = np.sqrt(
     (2*group1_var + 2*group2_var) 
@@ -57,6 +57,12 @@ pooled_stdev = np.sqrt(
 
 d = (group2.mean() - group1.mean()) / pooled_stdev
 d
+
+test.save()
+
+
+
+### END SOLUTION
 ```
 
 
@@ -66,16 +72,26 @@ d
 
 
 
-#### 3. Is this a large effect size? What conclusion should we draw about these two samples?
-
 
 ```python
+# PUT ALL WORK FOR THE ABOVE QUESTION ABOVE THIS CELL
+# THIS UNALTERABLE CELL CONTAINS HIDDEN TESTS
 
+### BEGIN HIDDEN TESTS
+
+from test_scripts.test_class import Test
+test = Test()
+
+test.run_test()
+
+
+### END HIDDEN TESTS
 ```
 
+#### 3. Is this a large effect size? What conclusion should we draw about these two samples?
 
-```python
-# __SOLUTION__
+=== BEGIN MARK SCHEME ===
+
 
 '''
 This is a huge effect size, but we have to be careful about drawing
@@ -83,7 +99,8 @@ conclusions about the relationship between the two colonies (that
 the colonies contain distinct populations of ants, for example), since
 we have such small sample sizes.
 '''
-```
+
+=== END MARK SCHEME ===
 
 #### 4. We decide we want to collect more data to have a more robust experiment. 
 
@@ -91,16 +108,22 @@ we have such small sample sizes.
 
 
 ```python
+### BEGIN SOLUTION
 
-```
 
+from test_scripts.test_class import Test
+test = Test()
 
-```python
-# __SOLUTION__
 
 power.TTestIndPower().solve_power(effect_size=d,
                                   alpha=0.05,
                                  power=0.9)
+
+test.save()
+
+
+
+### END SOLUTION
 ```
 
 
@@ -109,6 +132,22 @@ power.TTestIndPower().solve_power(effect_size=d,
     5.066906633232539
 
 
+
+
+```python
+# PUT ALL WORK FOR THE ABOVE QUESTION ABOVE THIS CELL
+# THIS UNALTERABLE CELL CONTAINS HIDDEN TESTS
+
+### BEGIN HIDDEN TESTS
+
+from test_scripts.test_class import Test
+test = Test()
+
+test.run_test()
+
+
+### END HIDDEN TESTS
+```
 
 Suppose we gather more data on our ants and then re-visit our calculations. 
 
@@ -124,14 +163,20 @@ col2 = pd.read_csv('data/colony2')
 
 
 ```python
+### BEGIN SOLUTION
 
-```
 
+from test_scripts.test_class import Test
+test = Test()
 
-```python
-# __SOLUTION__
 
 stats.ttest_ind(col1['col1_length'], col2['col2_length'])
+
+test.save()
+
+
+
+### END SOLUTION
 ```
 
 
@@ -141,20 +186,31 @@ stats.ttest_ind(col1['col1_length'], col2['col2_length'])
 
 
 
-#### 6. What should we conclude about these two collections of ant body lengths?
-
 
 ```python
+# PUT ALL WORK FOR THE ABOVE QUESTION ABOVE THIS CELL
+# THIS UNALTERABLE CELL CONTAINS HIDDEN TESTS
 
+### BEGIN HIDDEN TESTS
+
+from test_scripts.test_class import Test
+test = Test()
+
+test.run_test()
+
+
+### END HIDDEN TESTS
 ```
 
+#### 6. What should we conclude about these two collections of ant body lengths?
 
-```python
-# __SOLUTION__
+=== BEGIN MARK SCHEME ===
+
 
 '''
 The p-value is now quite large, and so we cannot reject the null
 hypothesis that says that there is no difference between the body
 lengths in the two ant colonies.
 '''
-```
+
+=== END MARK SCHEME ===
