@@ -21,7 +21,9 @@ from scipy import stats
 ```python
 # __SOLUTION__
 
-# Power is simply 1 less the false-negative rate, 1 - beta.
+'''
+Power is simply 1 less the false-negative rate, 1 - beta.
+'''
 ```
 
 #### 2. Calculate Cohen's *d* for the following data.  
@@ -34,6 +36,8 @@ Calculate Cohen's *d* for these groups.
 
 
 ```python
+#run this cell without changes
+
 group1 = np.array([2.101, 2.302, 2.403])
 group2 = np.array([2.604, 2.505, 2.506])
 
@@ -73,10 +77,12 @@ d
 ```python
 # __SOLUTION__
 
-# This is a huge effect size, but we have to be careful about drawing
-# conclusions about the relationship between the two colonies (that
-# the colonies contain distinct populations of ants, for example), since
-# we have such small sample sizes.
+'''
+This is a huge effect size, but we have to be careful about drawing
+conclusions about the relationship between the two colonies (that
+the colonies contain distinct populations of ants, for example), since
+we have such small sample sizes.
+'''
 ```
 
 #### 4. We decide we want to collect more data to have a more robust experiment. 
@@ -146,7 +152,9 @@ stats.ttest_ind(col1['col1_length'], col2['col2_length'])
 ```python
 # __SOLUTION__
 
-# The p-value is now quite large, and so we cannot reject the null
-# hypothesis that says that there is no difference between the body
-# lengths in the two ant colonies.
+'''
+The p-value is now quite large, and so we cannot reject the null
+hypothesis that says that there is no difference between the body
+lengths in the two ant colonies.
+'''
 ```
